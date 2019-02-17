@@ -77,6 +77,7 @@ int main(int argc, char* argv[])
     Test(nullptr);
 
     Test("");
+    Test(" ");
 
     Test("123");
 
