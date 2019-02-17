@@ -7,4 +7,4 @@
 　　　　　　　 　计算num
 		 每计算一位判断是否超过阈值
 　 判断str是否执行完毕 if（*str=='\0'）
-  return num;
+   return num;
