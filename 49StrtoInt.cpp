@@ -2,7 +2,7 @@
 
 long long StrToIntCore(const char* str, bool minus);//字符指针类型str　布尔类型minus(负数)
 
-enum Status {kValid = 0, kInvalid};
+enum Status {kValid = 0, kInvalid};//全局变量，验证返回值０，是０值还是错误输入
 int g_nStatus = kValid;
 
 int StrToInt(const char* str)
@@ -11,7 +11,7 @@ int StrToInt(const char* str)
     long long num = 0;
     //char a=nullptr;
 
-    if(str != nullptr && *str != '\0') 
+    if(str != nullptr && *str != '\0') //判断指针是否为空，以及字符串是否为空字符串
     {
         bool minus = false;
         if(*str == '+')
@@ -56,7 +56,7 @@ long long StrToIntCore(const char* digit, bool minus)
         }
     }
 
-    if(*digit == '\0') 
+    if(*digit == '\0') //执行完成
         g_nStatus = kValid;
 
     return num;
@@ -75,24 +75,20 @@ void Test(const char* string)
 int main(int argc, char* argv[])
 {
     Test(nullptr);
-
     Test("");
     Test(" ");
 
     Test("123");
-
     Test("+123");
-    
     Test("-123");
 
     Test("1a33");
 
     Test("+0");
-
     Test("-0");
     Test("0");
 
-    //有效的最大正整数, 0x7FFFFFFF
+    //有效的最大正整数, 0x7FFFFFFF　2147483647
     Test("+2147483647");    
 
     Test("-2147483647");
@@ -101,9 +97,7 @@ int main(int argc, char* argv[])
 
     //有效的最小负整数, 0x80000000
     Test("-2147483648");    
-
     Test("+2147483649");
-
     Test("-2147483649");
 
     Test("+");
