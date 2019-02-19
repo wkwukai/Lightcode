@@ -23,7 +23,7 @@ bool duplicate(int numbers[], int length, int* duplication)
             return false;
     }
 
-    for(int i = 0; i < length; ++i)
+    for(int i = 0; i < length; ++i)//寻找重复数字
     {
         while(numbers[i] != i)
         {
@@ -60,7 +60,7 @@ void test(char* testName, int numbers[], int lengthNumbers, int expected[], int 
     printf("%s begins: ", testName);
 
     int duplication;
-    bool validInput = duplicate(numbers, lengthNumbers, &duplication);
+    bool validInput = duplicate(numbers, lengthNumbers, &duplication);//布尔类型的输出
 
     if(validArgument == validInput)
     {
