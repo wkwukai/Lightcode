@@ -7,23 +7,23 @@
 class CMyString
 {
 public:
-    CMyString(char* pData = nullptr);
-    CMyString(const CMyString& str);
-    ~CMyString(void);
+    CMyString(char* pData = nullptr);//构造函数，在函数创建一个新对象时调用
+    CMyString(const CMyString& str);//拷贝构造函数
+    ~CMyString(void);//析构函数，在函数删除一个对象使使用
 
     CMyString& operator = (const CMyString& str);
 
     void Print();
       
 private:
-    char* m_pData;
+    char* m_pData;//私有变量赋值字符串
 };
-
+//成员函数定于，包括构造函数
 CMyString::CMyString(char *pData)
 {
     if(pData == nullptr)
     {
-        m_pData = new char[1];
+        m_pData = new char[1];//为指针分配内存
         m_pData[0] = '\0';
     }
     else
@@ -70,7 +70,7 @@ void Test1()
 {
     printf("Test1 begins:\n");
 
-    char* text = "Hello world";
+    char* text =(char*)"Hello world";
 
     CMyString str1(text);
     CMyString str2;
@@ -88,7 +88,7 @@ void Test2()
 {
     printf("Test2 begins:\n");
 
-    char* text = "Hello world";
+    char* text = (char*)"Hello world";
 
     CMyString str1(text);
     str1 = str1;
@@ -105,7 +105,7 @@ void Test3()
 {
     printf("Test3 begins:\n");
 
-    char* text = "Hello world";
+    char* text = (char*)"Hello world";
 
     CMyString str1(text);
     CMyString str2, str3;
