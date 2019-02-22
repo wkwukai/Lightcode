@@ -9,7 +9,7 @@
 //        numbers:     一个整数数组
 //        length:      数组的长度
 //        duplication: (输出) 数组中的一个重复的数字
-// 返回值:             
+// 返回值:              
 //        true  - 输入有效，并且数组中存在重复的数字
 //        false - 输入无效，或者数组中没有重复的数字
 bool duplicate(int numbers[], int length, int* duplication)
@@ -23,11 +23,11 @@ bool duplicate(int numbers[], int length, int* duplication)
             return false;
     }
 
-    for(int i = 0; i < length; ++i)//寻找重复数字
+    for(int i = 0; i < length; ++i)//寻找重复数字，采用基数排序算法
     {
         while(numbers[i] != i)
         {
-            if(numbers[i] == numbers[numbers[i]])
+            if(numbers[i] == numbers[numbers[i]])//哈希表
             {
                 *duplication = numbers[i];
                 return true;
