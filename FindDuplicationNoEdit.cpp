@@ -6,7 +6,7 @@
 
 #include <iostream>
 
-int countRange(const int* numbers, int length, int start, int end);
+int countRange(const int* numbers, int length, int start, int end);//定义函数，函数申明
 
 // 参数:
 //        numbers:     一个整数数组
@@ -14,13 +14,13 @@ int countRange(const int* numbers, int length, int start, int end);
 // 返回值:             
 //        正数  - 输入有效，并且数组中存在重复的数字，返回值为重复的数字
 //        负数  - 输入无效，或者数组中没有重复的数字
-int getDuplication(const int* numbers, int length)
+int getDuplication(const int* numbers, int length)//二分法查找
 {
     if(numbers == nullptr || length <= 0)
         return -1;
 
     int start = 1;
-    int end = length - 1;
+    int end = length - 1;//数组内数的范围
     while(end >= start)
     {
         int middle = ((end - start) >> 1) + start;
@@ -28,7 +28,7 @@ int getDuplication(const int* numbers, int length)
         if(end == start)
         {
             if(count > 1)
-                return start;
+                return start;//返回一个重复的数
             else
                 break;
         }
@@ -48,11 +48,10 @@ int countRange(const int* numbers, int length, int start, int end)
 
     int count = 0;
     for(int i = 0; i < length; i++)
-        if(numbers[i] >= start && numbers[i] <= end)
+        if(numbers[i] >= start && numbers[i] <= end)//判断数组中的数是否满足，长度是N+1,范围是N
             ++count;
     return count;
-}
-
+｝
 // ====================测试代码====================
 void test(const char* testName, int* numbers, int length, int* duplications, int dupLength)
 {
