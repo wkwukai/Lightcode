@@ -1,6 +1,13 @@
 #include <exception>
 #include <cstdio>
+using namespace std:
 
+BinaryTreeNode struct
+{
+	int m_nValue;
+	BinaryTreeNode* m_pLeft;
+	BinaryTreeNode* m_pRight;
+};
 
 BinaryTreeNode* ConstructCore(int* startPreorder, int* endPreorder, int* startInorder, int* endInorder);
 
@@ -52,15 +59,14 @@ BinaryTreeNode* ConstructCore
     if(leftLength < endPreorder - startPreorder)
     {
         // 构建右子树
-        root->m_pRight = ConstructCore(leftPreorderEnd + 1, endPreorder,
-            rootInorder + 1, endInorder);
+        root->m_pRight = ConstructCore(leftPreorderEnd + 1,endPreorder, rootInorder + 1, endInorder);
     }
 
     return root;
 }
 
 // ====================测试代码====================
-void Test(char* testName, int* preorder, int* inorder, int length)
+void Test(const char* testName, int* preorder, int* inorder, int length)
 {
     if(testName != nullptr)
         printf("%s begins:\n", testName);
